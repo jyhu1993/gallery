@@ -1,0 +1,190 @@
+@width:750px;
+@aspect_radio:9/6;
+*{
+	margin:0;
+	padding:0;
+}
+html{
+	height: 100%;
+}
+body{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/*定义图片渐入的动画*/
+@keyframes imgAnimation{
+	0%{opacity: 0}
+	25%{opacity: 0.5}
+	50%{opacity:1}
+	75%{opacity: 0.5}
+	100%{opacity: 0}
+}
+@-webkit-keyframes imgAnimation{
+	from{opacity: 0}
+	to{opacity: 1}
+}
+/*定义拼图相册大小;*/
+.puzzle{
+	width: @width;
+	height: @width/@aspect_radio;
+	overflow: hidden;
+	position: relative;
+}
+
+.div{
+	/*	设置背景尺寸，使其铺满div;*/
+	background: no-repeat center;
+	background-size:cover;
+}
+/*一张图片时的样式*/
+.puzzle-1{
+	.div;
+	width: 100%;
+	height: 100%;
+	animation: imgAnimation 3s;
+	-webkit-animation:imgAnimation 3s;
+}
+/*两张图片的样式；*/
+.puzzle-2{
+	.div;
+	position: absolute;
+	height: 100%;
+	animation: imgAnimation 2s;
+	-webkit-animation:imgAnimation 2s;
+}
+.puzzle-2:nth-child(1){
+	width: 100% * 2/3;
+	clip-path: polygon(0% 0%, 100% 0%, 50% 100%, 0% 100%);
+}
+.puzzle-2:nth-child(2){
+	left:100% * 1/3px;
+	width: 100% * 2/3;
+	clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+/*三张图片时的样式*/
+.puzzle-3{
+	.div;
+	position: absolute;
+	animation: imgAnimation 2s;
+	-webkit-animation:imgAnimation 2s;
+}
+.puzzle-3:nth-child(1){
+	height: 100%;
+	width:@width - (@width/@aspect_radio/2);
+
+}
+.puzzle-3:nth-child(2){
+	height: 50%;
+	right: 0;
+	width: @width/@aspect_radio/2;
+}
+.puzzle-3:nth-child(3){
+	right: 0;
+	top: 50%;
+	height: 50%;
+	width: @width/@aspect_radio/2;
+}
+/*四张图片的排版*/
+.puzzle-4{
+	.div;
+	position: absolute;
+	height: 50%;
+	width: 50%;
+	animation: imgAnimation 2s;
+	-webkit-animation:imgAnimation 2s;
+}
+.puzzle-4:nth-child(2){
+	left: 50%;
+}
+.puzzle-4:nth-child(3){
+	top: 50%;
+}
+.puzzle-4:nth-child(4){
+	top: 50%;
+	left: 50%;
+}
+/*五张图片排版*/
+.puzzle-5{
+	.div;
+	position: absolute;
+	animation: imgAnimation 2s;
+	-webkit-animation:imgAnimation 2s;
+}
+.puzzle-5:nth-child(1){
+	height: (@width/@aspect_radio) * 2 / 3;
+	width: @width * 2/3;
+}
+.puzzle-5:nth-child(2){
+	right: 0;
+	top: 0;
+	width: @width / 3;
+	height: @width / 3;
+}
+.puzzle-5:nth-child(3){
+	top: @width / 3;
+	right: 0;
+	height: (@width/@aspect_radio) - (@width / 3);
+	width: @width / 3;
+}
+.puzzle-5:nth-child(4){
+	left: @width/3;
+	top: (@width/@aspect_radio) * 2 / 3;
+	height: (@width/@aspect_radio)/3;
+	width: @width/3;
+}
+.puzzle-5:nth-child(5){
+	left: 0;
+	top: (@width/@aspect_radio) * 2 / 3;
+	height: (@width/@aspect_radio)/3;
+	width: @width/3;
+}
+/*六张图时的排版*/
+.puzzle-6{
+	.div;
+	position: absolute;
+	width: @width/3;
+	height: (@width/@aspect_radio)/3;
+	animation: imgAnimation 2s;
+	-webkit-animation:imgAnimation 2s;
+}
+.puzzle-6:nth-child(1){
+	width:@width*2/3;
+	height: (@width/@aspect_radio)*2/3
+}
+.puzzle-6:nth-child(2){
+	top: 0;
+	right: 0;
+}
+.puzzle-6:nth-child(3){
+	top: (@width/@aspect_radio)/3;
+	right: 0;
+}
+.puzzle-6:nth-child(4){
+	top: (@width/@aspect_radio)*2/3;
+	right: 0;
+}
+.puzzle-6:nth-child(5){
+	top: (@width/@aspect_radio)*2/3;
+	right: @width/3;
+}
+.puzzle-6:nth-child(6){
+	top: (@width/@aspect_radio)*2/3;
+	left: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
