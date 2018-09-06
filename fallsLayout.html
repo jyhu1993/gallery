@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多功能相册之瀑布布局</title>
+	<link rel="stylesheet" type="text/css" href="styles/format.css">
+	<script type="text/javascript" src="scripts/setformat.js"></script>
+</head>
+<body>
+	<div class="falls"></div>
+	<script>
+		//瀑布布局测试代码；
+		var urlArr = [];
+		for (var i = 1; i < 17; i++) {
+			if (i < 10) {
+				var url = './images/00' + i + '.jpg';
+				urlArr.push(url);
+			}else{
+				var url = './images/0' + i + '.jpg';
+				urlArr.push(url);
+			}
+		}
+		var gallery = new Gallery(urlArr);
+		gallery.setFallsFormat(4,'10px');
+	</script>
+</body>
+</html>

@@ -2,15 +2,6 @@
   margin: 0;
   padding: 0;
 }
-html {
-  height: 100%;
-}
-body {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 /*定义图片渐入的动画*/
 @keyframes imgAnimation {
   0% {
@@ -194,4 +185,35 @@ body {
 .puzzle-6:nth-child(6) {
   top: 333.33333333px;
   left: 0;
+}
+.falls {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.column {
+  height: 100%;
+  overflow: hidden;
+}
+.fallsImg {
+  width: 100%;
+}
+body {
+  position: relative;
+}
+.coverLayer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.7;
+}
+.cloneImg {
+  position: fixed;
+  z-index: 10;
+  width: 80%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }

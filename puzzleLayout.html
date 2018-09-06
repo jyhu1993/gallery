@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多功能相册之拼图布局</title>
+	<link rel="stylesheet" type="text/css" href="styles/format.css">
+</head>
+<body>
+	<div class="puzzle"></div>
+	<script type="text/javascript" src="scripts/setformat.js"></script>
+	<script>			
+		// 以下为测试拼图6中布局的图片内容；
+		var urlArr1 = ['./images/001.jpg'];
+		var urlArr2 = ['./images/001.jpg','./images/002.jpg'];
+		var urlArr3 = ['./images/001.jpg','./images/002.jpg','./images/003.jpg'];
+		var urlArr4 = ['./images/001.jpg','./images/002.jpg','./images/003.jpg','./images/004.jpg'];
+		var urlArr5 = ['./images/001.jpg','./images/002.jpg','./images/003.jpg','./images/004.jpg',
+		               './images/005.jpg'];
+		var urlArr6 = ['./images/001.jpg','./images/002.jpg','./images/003.jpg','./images/004.jpg',
+					   './images/005.jpg','./images/006.jpg'];
+		// 异步执行上述数组图片；
+		(function(){
+			function step1(){
+				return new Promise(function(resolve,reject){
+					var gallery = new Gallery(urlArr1);
+					gallery.setPuzzleFormat();
+					setTimeout(resolve,2000,'');
+				});
+			}
+			function step2(){
+				return new Promise(function(resolve,reject){
+					var gallery = new Gallery(urlArr2);
+					gallery.setPuzzleFormat();
+					setTimeout(resolve,2000,'');			
+				});
+			}
+			function step3(){
+				return new Promise(function(resolve,reject){
+					var gallery = new Gallery(urlArr3);
+					gallery.setPuzzleFormat();
+					setTimeout(resolve,2000,'');			
+				});
+			}
+			function step4(){
+				return new Promise(function(resolve,reject){
+					var gallery = new Gallery(urlArr4);
+					gallery.setPuzzleFormat();
+					setTimeout(resolve,2000,'');			
+				});
+			}
+			function step5(){
+				return new Promise(function(resolve,reject){
+					var gallery = new Gallery(urlArr5);
+					gallery.setPuzzleFormat();
+					setTimeout(resolve,2000,'');			
+				});
+			}
+			function step6(){
+				return new Promise(function(resolve,reject){
+					var gallery = new Gallery(urlArr6);
+					gallery.setPuzzleFormat();
+					setTimeout(resolve,2000,'');			
+				});
+			}
+			step1().then(step2)
+				   .then(step3)
+				   .then(step4)
+				   .then(step5)
+				   .then(step6);
+		})();
+
+	</script>
+</body>
+</html>
